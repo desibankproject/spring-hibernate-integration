@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	
+	<display-name>qweqw</display-name>
+	
+	
+	<welcome-file-list>
+		<welcome-file>customer-registerwith-image.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- 
+	ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+		authService=(AuthService)applicationContext.getBean("AuthServiceImpl");
+	ContextLoaderListener is given by spring web module
+	
+	below listener will create spring container which is called Spring Root Web Container
+	which will manage dao layer, datasource , service layer etc beans
+		classpath means it is inside src/main/resources
+	 -->
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>	
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Configure dispatcher servlet -->
+   <servlet>
+		<servlet-name>online-tech</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- / means all the request should go to DispatcherServlet  -->	
+	<servlet-mapping>
+		<servlet-name>online-tech</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	
+
+	
+	
+
+  <!-- Jersey Servlet configurations -->
+  
+  
+    <!-- <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>restricted web services</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+   -->
+	
+	
+</web-app>
