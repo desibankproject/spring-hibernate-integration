@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import com.indigo.service.AuthService;
+import com.spring.web.mvc.vo.ApplicationResponseVO;
 import com.spring.web.mvc.vo.CustomerVO;
 
 @Controller
@@ -57,13 +58,16 @@ public class CustomerUploadImageController {
 	}
 
 	@PostMapping("/register-with-image")
-	public String registerUserPost(@ModelAttribute CustomerVO customerVO, Model model) {
+	public ApplicationResponseVO registerUserPost(@ModelAttribute CustomerVO customerVO, Model model) {
 		System.out.println("registerUserPost is called");
 		System.out.println(customerVO);
 		authService.saveCustomerWithImage(customerVO);
 		// List<CustomerEntity> customerList=authDao.findCustomer();
 		// model.addAttribute("customerList", customerList);
-		return "redirect:/customers-with-image?message=Customer is registered into the database successfully!";
+		ApplicationResponseVO applicationResponseVO=new ApplicationResponseVO();
+		applicationResponseVO.setStatus("success");
+		applicationResponseVO.setMessage("Hey! you are registered with us successfully!!!!!!");
+		return applicationResponseVO;
 	}
 
 	// It converts your upload file into byte array form after it

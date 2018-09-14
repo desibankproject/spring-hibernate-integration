@@ -46,7 +46,7 @@
 		@ BizService </header>
 	
 	<div class="container">
-	<img src="${pageContext.request.contextPath}/img/cust-registration.png" style="height: 100px;" />
+	<img src="${pageContext.request.contextPath}/img/11.jpg" style="height: 100px;" />
 	<hr />
 	<section>
 	<h4>${message}</h4>	   

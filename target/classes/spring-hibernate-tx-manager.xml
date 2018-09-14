@@ -22,6 +22,4 @@
 	
 		<bean class="org.springframework.orm.hibernate4.HibernateExceptionTranslator" />
 
-
-
 </beans>	 

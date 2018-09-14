@@ -76,7 +76,30 @@
   					return;
   				}
   				//Write JavaScript code to submit the form
-  				document.customerform.submit();
+  				//document.customerform.submit();
+  				//action="${pageContext.request.contextPath}/register-with-image" method="post" enctype="multipart/form-data"
+  				alert("#)#)coming soon!#)");
+  				//Submit form with ajax!
+  				//Actually we will send data using formdata but we have to send image as well
+  				//FormData is JavaScript object which is used to send data 
+                var formData = new FormData(document.getElementById('customerform'));
+                //var myForm = $("#imagePopupFormId").serialize();
+                //YOU ALREADY KNOW HOW TO SEND JSON DATA USING AJAX
+                //YOU ALREADY KNOW HOW TO SEND FORM DATA WITHOUT AJAX
+                //YOU ALREADY KNOW HOW TO SEND FORM DATA WITH AJAX WITHOUT IMAGE
+                //THIS IS SPECIAL CODE TO SEND IMAGE USING AJAX WITH FORM DATA
+                $.ajax({
+                          url : "${pageContext.request.contextPath}/register-with-image",
+                          dataType: 'json',
+                          data : formData,
+                          processData: false,
+                          contentType: false,
+                          type : 'POST',
+                          success : function(cdata) {
+                                   $("#mmessage").html(cdata.message);
+                          }
+                });
+				
   			
   		}	
   </script>
@@ -89,13 +112,14 @@
 	<div class="container">
 	<a href="${pageContext.request.contextPath}/customers-with-image"><img src="${pageContext.request.contextPath}/img/cust-registration.png" style="height: 100px;" /></a>
 	<hr />
+	<h4 id="mmessage">temp message</h4>
 	<section>
 		<!--
 		http://localhost:8080/spring-kb/ check
 		 -->	
-		<form name="customerform" action="${pageContext.request.contextPath}/register-with-image" method="post" enctype="multipart/form-data">
+		<form id="customerform" name="customerform">
 		<h4>${message}</h4>
-		<table>
+		<table style="background-image: url('${pageContext.request.contextPath}/img/11.jpg');">
 		<tr>
 			<tr>
 				<td>Username :&nbsp;&nbsp;&nbsp;</td>
