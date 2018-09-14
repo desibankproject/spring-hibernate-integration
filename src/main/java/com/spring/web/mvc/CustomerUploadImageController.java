@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import com.indigo.service.AuthService;
@@ -58,7 +59,7 @@ public class CustomerUploadImageController {
 	}
 
 	@PostMapping("/register-with-image")
-	public ApplicationResponseVO registerUserPost(@ModelAttribute CustomerVO customerVO, Model model) {
+	@ResponseBody public ApplicationResponseVO registerUserPost(@ModelAttribute CustomerVO customerVO, Model model) {
 		System.out.println("registerUserPost is called");
 		System.out.println(customerVO);
 		authService.saveCustomerWithImage(customerVO);

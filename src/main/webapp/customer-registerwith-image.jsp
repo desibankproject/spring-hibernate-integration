@@ -110,7 +110,7 @@
 		@ BizService </header>
 	
 	<div class="container">
-	<a href="${pageContext.request.contextPath}/customers-with-image"><img src="${pageContext.request.contextPath}/img/cust-registration.png" style="height: 100px;" /></a>
+	<a href="${pageContext.request.contextPath}/customers-with-image"><img src="${pageContext.request.contextPath}/img/2.png"/></a>
 	<hr />
 	<h4 id="mmessage">temp message</h4>
 	<section>
@@ -119,7 +119,7 @@
 		 -->	
 		<form id="customerform" name="customerform">
 		<h4>${message}</h4>
-		<table style="background-image: url('${pageContext.request.contextPath}/img/11.jpg');">
+		<table style="background-image: url('${pageContext.request.contextPath}/img/11.jpg');background-repeat: no-repeat;">
 		<tr>
 			<tr>
 				<td>Username :&nbsp;&nbsp;&nbsp;</td>
